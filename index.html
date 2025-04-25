@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Solutions Pakistan - Service Online</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #e50914;
+            --secondary: #00a8e8;
+            --dark: #0a0a0a;
+            --light: #f8f9fa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--dark);
+            color: var(--light);
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            position: relative;
+            padding: 8rem 0 6rem;
+            background: linear-gradient(45deg, #1a1a1a 30%, var(--primary));
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+            margin-bottom: 4rem;
+            overflow: hidden;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -25%;
+            width: 150%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 25px,
+                rgba(229,9,20,0.1) 25px,
+                rgba(229,9,20,0.1) 50px
+            );
+            animation: shine 20s linear infinite;
+        }
+
+        @keyframes shine {
+            100% { transform: translateX(50%); }
+        }
+
+        h1 {
+            font-size: 4rem;
+            text-align: center;
+            background: linear-gradient(45deg, var(--primary), #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 15px rgba(229,9,20,0.5));
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            text-align: center;
+            color: #ccc;
+            animation: fadeInUp 1s 0.2s ease both;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin: 4rem 0;
+        }
+
+        .service-card {
+            background: rgba(255,255,255,0.05);
+            padding: 2.5rem;
+            border-radius: 15px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(229,9,20,0.2);
+            backdrop-filter: blur(10px);
+            transform: translateY(0);
+            opacity: 0;
+            animation: cardEntry 0.6s ease forwards;
+        }
+
+        .service-card:nth-child(1) { animation-delay: 0.3s; }
+        .service-card:nth-child(2) { animation-delay: 0.5s; }
+        .service-card:nth-child(3) { animation-delay: 0.7s; }
+
+        @keyframes cardEntry {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(229,9,20,0.2);
+            border-color: var(--primary);
+        }
+
+        .service-title {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .service-title i {
+            font-size: 2rem;
+            color: var(--secondary);
+        }
+
+        .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #00ff00, #00e676);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 1.5rem 0;
+        }
+
+        .service-details {
+            color: #ccc;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight {
+            color: var(--secondary);
+            font-weight: 500;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #25D366;
+            color: #fff;
+            padding: 1.2rem;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            box-shadow: 0 8px 25px rgba(37,211,102,0.4);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1) rotate(15deg);
+            box-shadow: 0 12px 30px rgba(37,211,102,0.6);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem;
+            }
+            
+            h1 {
+                font-size: 2.8rem;
+            }
+            
+            .service-card {
+                padding: 1.8rem;
+            }
+            
+            .price {
+                font-size: 2rem;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .contact-section {
+            text-align: center;
+            margin-top: 5rem;
+            padding: 2rem;
+            background: #1a1a1a;
+            border-radius: 10px;
+        }
+        .complaint-info {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    margin-top: 3rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: #ccc;
+    font-size: 1rem;
+    line-height: 1.6;
+    animation: fadeInUp 1s ease;
+}
+
+.complaint-info h3 {
+    color: var(--secondary);
+    margin-bottom: 1rem;
+    font-size: 1.6rem;
+}
+
+.complaint-info p {
+    margin: 0.5rem 0;
+}
+
+.complaint-info a {
+    color: var(--primary);
+    text-decoration: underline;
+    transition: 0.3s ease;
+}
+
+.complaint-info a:hover {
+    color: #fff;
+    text-shadow: 0 0 5px var(--primary);
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Service Online</h1>
+            <p class="tagline">Premium Digital Solutions at Pakistani Prices</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="services-grid">
+            <div class="service-card">
+                <h2 class="service-title">
+                    <i class="fas fa-film"></i>
+                    Netflix Screen
+                </h2>
+                <div class="price">300 PKR/Month</div>
+                <p class="service-details">
+                    Enjoy premium Netflix access with:
+                    <span class="highlight">HD Quality</span> • 
+                    <span class="highlight">24/7 Support</span>
+                </p>
+            </div>
+
+            <div class="service-card">
+                <h2 class="service-title">
+                    <i class="fas fa-code"></i>
+                    Web Development
+                </h2>
+                <div class="price">2,000 PKR</div>
+                <p class="service-details">
+                    Professional static websites featuring:
+                    <span class="highlight">Responsive Design</span> • 
+                    <span class="highlight">Free basic SEO Optimized</span> • 
+                    <span class="highlight">lifetime support</span>
+                </p>
+                <div class="price" style="margin-top: 1rem">8,000 PKR</div>
+                <p class="service-details">
+                    Dynamic websites with:
+                    <span class="highlight">control/admin Integration</span> • 
+                    <span class="highlight">E-commerce</span> • 
+                    <span class="highlight">Database Support</span>
+                </p>
+            </div>
+
+            <div class="service-card">
+                <h2 class="service-title">
+                    <i class="fas fa-palette"></i>
+                    Logo Design
+                </h2>
+                <div class="price">50 PKR</div>
+                <p class="service-details">
+                    10 unique concepts including:
+                    <span class="highlight">12hr Delivery</span>
+                </p>
+            </div>
+        </div>
+
+        <a href="https://wa.me/923454247772" class="whatsapp-float" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <div class="contact-section">
+            <h2>Start Your Project Today!</h2>
+            <p style="margin-top: 1rem; font-size: 1.2rem;">
+                24/7 Customer Support
+            </p>
+            <div style="margin-top: 2rem; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+                <!-- WhatsApp -->
+                <a href="https://wa.me/923454247772" target="_blank" style="text-decoration: none; color: #fff;">
+                    <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp" style="vertical-align: middle; margin-right: 8px;">
+                    Chat on WhatsApp
+                </a>
+        
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/service_online_12" target="_blank" style="text-decoration: none; color: #fff;">
+                    <img src="https://img.icons8.com/color/48/000000/instagram-new--v1.png" alt="Instagram" style="vertical-align: middle; margin-right: 8px;">
+                    Follow on Instagram
+                </a>
+            </div>
+            <div class="container">
+                <div class="complaint-info">
+                    <h3>Complaints & Feedback</h3>
+                    <p>If you have any complaints regarding services, feel free to reach out:</p>
+                    <p>Email: <a href="mailto:muneebn350@gmail.com">muneebn350@gmail.com</a></p>
+                    <p>WhatsApp: <a href="https://wa.me/923164942542" target="_blank">+92 316 4942542</a></p>
+                    <p>Sim Call : 03208787714</p>
+                    <p>We are here to resolve your issues 24/7 </p>
+                </div>
+            </div>
+            
+        </div>
+        
+    </div>
+</body>
+</html>
